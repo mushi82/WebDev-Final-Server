@@ -5,6 +5,7 @@ It defines the campus model for the database.
 ==================================================*/
 const Sequelize = require('sequelize');  // Import Sequelize
 const db = require('../db');  // Import Sequelize database instance called "db"
+const { type } = require('express/lib/response');
 
 // Define the campus model
 const Campus = db.define("campus", {
@@ -20,7 +21,14 @@ const Campus = db.define("campus", {
 
   description: {
     type: Sequelize.STRING,
+  },
+
+  imageURL: {
+    type: Sequelize.STRING,
+    defaultValue: 'https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg',
+    allowNull: true
   }
+
 });
 
 // Export the campus model
